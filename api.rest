@@ -1,0 +1,102 @@
+###
+@server = http://localhost:9087
+
+###
+@api = {{server}}/v2
+
+### token
+@token= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZWYiOiI2NTdlNTgzN2RiNzgzMjNkNjc3YTQ0NDgiLCJyb2xlIjoidXNlciIsImRldmljZUlkIjoiNGE3YmQzNDE5OGViZTJlZjI4MzYwM2M1N2VkNjM2ZDMyNGNhZjk0NzM4YTRhZWMxYzUxYTBkNDdmNDU0MjkyZSIsInNlc3Npb25JZCI6IjAxSEhUUkpFQVZWSktIV05WVloyN1o5QUtXIiwiaWF0IjoxNzAyNzc4OTc2LCJleHAiOjE4NzU1Nzg5NzYsImF1ZCI6IndlYi11c2VyIiwiaXNzIjoiY29ublRleHQtZGV2ZWxvcG1lbnQifQ.CiBdN7Rw-L2GeAbRlLTKK0j6uTdVqp7rC5oLB9BlzyA
+
+###
+GET {{server}}
+
+###
+GET {{server}}/v2
+
+### sign up
+POST {{api}}/auth/signup
+Content-Type: application/json
+
+{
+    "userName": "Andy",
+    "email": "andrew@email.com",
+    "password": "passwurd11"
+}
+
+### verify otp
+POST {{api}}/auth/verify-otp 
+Content-Type: application/json
+
+{
+    "email": "andrew@email.com",
+    "code": "955ec1",
+    "otpPurpose": "verify-acct"
+}
+
+### resend otp
+POST {{api}}/auth/resend-otp
+Content-Type: application/json
+
+{
+    "email": "amidst@email.com",
+    "otpPurpose": "reset-password"
+}
+
+### sign in
+POST {{api}}/auth/login
+Content-Type: application/json
+
+{
+   "email": "andrew@email.com",
+    "password": "passwurd11"
+}
+
+### forgot password
+POST {{api}}/auth/forgot-password
+Content-Type: application/json
+
+{
+     "email": "amidst@email.com"
+}
+
+### reset password
+PATCH  {{api}}/auth/reset-password
+Content-Type: application/json
+
+{
+    "email": "amidst@email.com",
+    "password": "password2",
+    "confirmPassword": "password2",
+    "code": "207766"
+}
+
+###search user(s)
+GET {{api}}/users?search_query=andrew
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### invite supplier
+POST {{api}}/users/invite
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "role": "supplier",
+    "email": "sup@email.com"
+}
+
+### accept invitation
+POST {{api}}/users/accept-invite
+Content-Type: application/json
+
+{
+    "code": "01HHK2SJ1TYPMF5HA3WPV466A6",
+    "userName": "yormmy",
+    "email": "sup@email.com",
+    "password": "yummy1"
+}
+
+### get invites
+GET {{api}}/users/invites
+Content-Type: application/json
+Authorization: Bearer {{token}}
