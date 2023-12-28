@@ -7,7 +7,7 @@ const appConfig = {
   isDev: env.NODE_ENV === "development",
   mongoDbUri: env.dbUri || "",
   environment: env.NODE_ENV,
-  port: Number(env.PORT) || 9087,
+  port: Number(env.PORT) || 9001,
   hashPepper: env.pepper,
   authConfigs: {
     saltRounds: 10,
@@ -23,6 +23,7 @@ const appConfig = {
   },
   paystackSecretKey: env.paystack_secret,
   paystackPublicKey: env.paystack_public_key,
+  BASE_URI: env.baseUrl
 };
 
 export default appConfig;

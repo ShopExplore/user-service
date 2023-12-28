@@ -68,6 +68,7 @@ async function verifyOtp(req: IRequest, res: Response) {
       userAuth.isVerified = true;
       await userAuth.save({ session });
 
+      //create cart for the user
       await OtpModel.deleteMany({
         User: userExist._id,
         purpose: otpExist.purpose,

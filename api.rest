@@ -1,8 +1,8 @@
 ###
-@server = http://localhost:9087
+@server = http://localhost:9001
 
 ###
-@api = {{server}}/v2
+@api = {{server}}/v1
 
 ### token
 @token= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZWYiOiI2NTdlNTgzN2RiNzgzMjNkNjc3YTQ0NDgiLCJyb2xlIjoidXNlciIsImRldmljZUlkIjoiNGE3YmQzNDE5OGViZTJlZjI4MzYwM2M1N2VkNjM2ZDMyNGNhZjk0NzM4YTRhZWMxYzUxYTBkNDdmNDU0MjkyZSIsInNlc3Npb25JZCI6IjAxSEhUUkpFQVZWSktIV05WVloyN1o5QUtXIiwiaWF0IjoxNzAyNzc4OTc2LCJleHAiOjE4NzU1Nzg5NzYsImF1ZCI6IndlYi11c2VyIiwiaXNzIjoiY29ublRleHQtZGV2ZWxvcG1lbnQifQ.CiBdN7Rw-L2GeAbRlLTKK0j6uTdVqp7rC5oLB9BlzyA
@@ -11,7 +11,7 @@
 GET {{server}}
 
 ###
-GET {{server}}/v2
+GET {{api}}
 
 ### sign up
 POST {{api}}/auth/signup
@@ -29,7 +29,7 @@ Content-Type: application/json
 
 {
     "email": "andrew@email.com",
-    "code": "955ec1",
+    "code": "341ead",
     "otpPurpose": "verify-acct"
 }
 
@@ -100,3 +100,7 @@ Content-Type: application/json
 GET {{api}}/users/invites
 Content-Type: application/json
 Authorization: Bearer {{token}}
+
+### request to become supplier
+### accept supplier request
+### get cart

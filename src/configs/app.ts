@@ -73,7 +73,7 @@ const initializeMiddlewares = () => {
 };
 
 const initializeRoutes = () => {
-  app.use("/v2", v1Routers);
+  app.use("/v1", v1Routers);
 
   app.get("/", (_req, res) => {
     res.json({ message: "Up and running in " + appConfig.environment });

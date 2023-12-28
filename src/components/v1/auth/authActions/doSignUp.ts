@@ -12,7 +12,6 @@ import { signUpSchema } from "../auth.policies";
 import platformConstants from "../../../../configs/platfromContants";
 import AuthModel, { OtpModel } from "../auth.model";
 import { IRequest } from "../../../../utils/types";
-import { _omit } from "../../../../utils/customLibrary";
 
 async function doSignUp(req: IRequest, res: Response) {
   const { userName, email, password }: z.infer<typeof signUpSchema> = req.body;
