@@ -10,6 +10,7 @@ import {
 import UserModel from "../../user/user.model";
 import AuthModel, { OtpModel } from "../auth.model";
 import { startSession } from "mongoose";
+import { CartModel } from "../../user/models/cart.model";
 
 async function verifyOtp(req: IRequest, res: Response) {
   const { code, email, otpPurpose }: z.infer<typeof verifyOtpSchema> = req.body;
@@ -69,6 +70,10 @@ async function verifyOtp(req: IRequest, res: Response) {
       await userAuth.save({ session });
 
       //create cart for the user
+      await new CartModel({
+        User: userExist._id,
+      }).save({ session });
+
       await OtpModel.deleteMany({
         User: userExist._id,
         purpose: otpExist.purpose,

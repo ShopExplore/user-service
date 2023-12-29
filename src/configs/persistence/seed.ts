@@ -2,8 +2,6 @@ import { startSession } from "mongoose";
 import UserModel from "../../components/v1/user/user.model";
 import appConfig from "..";
 import AuthModel from "../../components/v1/auth/auth.model";
-import { ClientSession } from "mongodb";
-import { abortSessionWithResponse } from "../../utils/response";
 
 const seeding = async () => {
   const session = await startSession();

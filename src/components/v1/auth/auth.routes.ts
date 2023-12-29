@@ -43,6 +43,6 @@ router.patch(
   requireAuth,
   changePassword
 );
-//invite supplier
+
 const authRouter = router;
 export default authRouter;
