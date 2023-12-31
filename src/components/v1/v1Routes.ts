@@ -2,7 +2,7 @@ import { Router, Response, Request, NextFunction } from "express";
 import authRoutes from "./auth/auth.routes";
 import { handleResponse } from "../../utils/response";
 import userRouter from "./user/user.routes";
-import customer_service from "../../utils/events/customer-service";
+import customer_service from "../../utils/event";
 
 const router = Router();
 
@@ -24,7 +24,9 @@ router.use(
 
     const response = await customer_service.subscribeEvents(payload);
 
-    console.log("============= Customer Service Received Event================");
+    console.log(
+      "============= Customer Service Received Event================"
+    );
     res.json(response);
   }
 );

@@ -23,7 +23,11 @@ const appConfig = {
   },
   paystackSecretKey: env.paystack_secret,
   paystackPublicKey: env.paystack_public_key,
-  BASE_URI: env.baseUrl
+  BASE_URI: env.baseUrl,
+  MESSAGE_BROKER_URL: env.message_broker_url,
+  EXCHANGE_NAME: "SHOP_EXPLORE",
+  CUSTOMER_BINDING_KEY: "CUSTOMER_SERVICE",
+  QUEUE_NAME: "SHOPEXPLORE_QUEUE",
 };
 
 export default appConfig;
